@@ -1,0 +1,35 @@
+{% extends 'temp/user.html' %}
+{% block base %}
+    <!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<table align="center" border="2" class="table table-striped">
+
+		<tr>
+			 <th>NAME</th>
+             <th>PHONE NO</th>
+             <th>EMAIL ID</th>
+             <th>GENDER</th>
+            <th>STATUS</th>
+
+     </tr>
+         {% for i in objfrd %}
+        <tr>
+            <td>{{ i.us.username}}</td>
+            <td>{{ i.us.phone_number}}</td>
+            <td>{{ i.us.email_id}}</td>
+            <td>{{ i.us.gender}}</td>
+            <td>{{ i.status }}</td>
+            <td><a href="{% url 'accept' idd=i.f_id %}">Accept</a> </td>
+            <td><a href="{% url 'reject' idd=i.f_id %}">Reject</a> </td>
+
+    </tr>
+
+     {% endfor %}
+	</table>
+</body>
+</html>
+{% endblock %}
